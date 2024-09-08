@@ -1,0 +1,39 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+
+# Python 相关
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# 编辑器和 IDE 文件
+.vscode
+.idea
+*.swp
+*.swo
+
+# 操作系统文件
+.DS_Store
+Thumbs.db
+
+# 日志文件
+*.log
+
+
+# 其他不需要的文件
+*.bak
+*.tmp
+
+.gitignore
+config.yml
+configmap.yaml
+rbac.yaml
+shell-operator.yaml
+workload.yaml

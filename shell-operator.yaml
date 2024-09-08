@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: vscaler
+  name: vscaler
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vscaler
+  template:
+    metadata:
+      labels:
+        app: vscaler
+    spec:
+      serviceAccountName: shell-operator
+      containers:
+      - image: dustise/inplacevpa:v0.0.4
+        imagePullPolicy: IfNotPresent
+        name: vscaler
+        volumeMounts:
+        - mountPath: /conf/
+          name: operator-config
+        env:
+        - name: NAMESPACE
+          value: default
+        - name: POD_NAME
+          value: stress
+        - name: CONTAINER_NAME
+          value: stress
+
+      volumes:
+      - configMap:
+          name: so-config
+        name: operator-config

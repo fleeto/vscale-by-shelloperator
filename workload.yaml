@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: stress
+spec:
+  containers:
+  - name: stress
+    image: colinianking/stress-ng:latest
+    resizePolicy:
+    - resourceName: cpu
+      restartPolicy: NotRequired
+    - resourceName: memory
+      restartPolicy: RestartContainer    
+    command: ["sleep", "3600"]
+    resources:
+      limits:
+        cpu: 200m
+        memory: 200M
+      requests:
+        cpu: 200m
+        memory: 200M
+
